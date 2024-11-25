@@ -1,8 +1,7 @@
-export interface Task {
-  id: number;
+export interface task {
+  id: string,
   title: string;
-  description: string;
   completed: boolean;
-  targetCompletionDate: Date,
-  completionDate: Date
+  targetCompletionDate?: Date,
+  completionDate?: Date
 }

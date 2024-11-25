@@ -1,8 +1,29 @@
-<div class="container">
-  <div class="title">Task List is 0% complete</div>
-  <div>
-    <mat-progress-bar mode="determinate" value="0"></mat-progress-bar>
+<div class="flex-container">
+  <div class="flex-left-column">
+    <div class="container">
+      <div class="content">
+        <div class="title">Task List is 0% complete</div>
+        <div class="progress">
+          <mat-progress-bar mode="determinate" value="0"></mat-progress-bar>
+        </div>
+        <div class="info">Steps can be done concurrently</div>
+        @for (task of tasks(); track task.title) {
+          <app-task
+            [id]="task.id"
+            [title]="task.title"
+            [selected]="task.id === selectedTask"
+            [targetCompletionDate]="task.targetCompletionDate"
+            [completed]="task.completed"
+            (onClick)="select($event)"
+          ></app-task>
+          <ng-template task [id]="task.id"><p>{{task.title}}</p></ng-template>
+        }
+      </div>
+    </div>
   </div>
-  <div class="info">Steps can be done concurrently</div>
-  
+  <div class="flex-right-column">
+    @if(selectedTemplate) {
+      <ng-container [ngTemplateOutlet]="selectedTemplate"></ng-container>
+    }
+  </div>
 </div>

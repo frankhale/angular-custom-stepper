@@ -1,1 +1,17 @@
-<p>task works!</p>
+<div class="task-container step"
+     [ngClass]="{'selected': selected()}"
+     (click)="select()">
+  <div class="step-container">
+    <div>
+      <span>{{ title() }}</span><br/>
+      <span><small>Target Completion Date: {{ targetCompletionDate() | date: 'shortDate' }}</small></span>
+    </div>
+    <div>
+      @if (!completed()) {
+        <mat-icon class="step-icon">pending_actions</mat-icon>
+      } @else {
+        <mat-icon class="completed step-icon">check_circle</mat-icon>
+      }
+    </div>
+  </div>
+</div>

@@ -1,37 +1,3 @@
 <div class="content">
-  <app-in-processing-list></app-in-processing-list>
-  <hr/>
-  <app-task-list></app-task-list>
-<!--<mat-horizontal-stepper (selectedIndexChange)="selectedStepIndex($event)"-->
-<!--                        [selectedIndex]="0"-->
-<!--                        [animationDuration]="'0'" [linear]="false" #stepper>-->
-<!--  <mat-step [stepControl]="firstFormGroup">-->
-<!--    <form [formGroup]="firstFormGroup">-->
-<!--      <mat-form-field>-->
-<!--        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>-->
-<!--      </mat-form-field>-->
-<!--      <div>-->
-<!--        <button mat-button matStepperNext>Next</button>-->
-<!--      </div>-->
-<!--    </form>-->
-<!--  </mat-step>-->
-<!--  <mat-step [stepControl]="secondFormGroup">-->
-<!--    <form [formGroup]="secondFormGroup">-->
-<!--      <mat-form-field>-->
-<!--        <input matInput placeholder="Address" formControlName="secondCtrl" required>-->
-<!--      </mat-form-field>-->
-<!--      <div>-->
-<!--        <button mat-button matStepperPrevious>Back</button>-->
-<!--        <button mat-button matStepperNext>Next</button>-->
-<!--      </div>-->
-<!--    </form>-->
-<!--  </mat-step>-->
-<!--  <mat-step>-->
-<!--    You are now done.-->
-<!--    <div>-->
-<!--      <button mat-button matStepperPrevious>Back</button>-->
-<!--      <button mat-button (click)="stepper.reset()">Reset</button>-->
-<!--    </div>-->
-<!--  </mat-step>-->
-<!--</mat-horizontal-stepper>-->
+  <app-task-list [tasks]="tasks"></app-task-list>
 </div>

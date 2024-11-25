@@ -1,5 +1,24 @@
+.flex-container {
+  display: flex;
+  gap: 10px;
+}
+
+.flex-left-column {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.flex-right-column {
+  flex: 5;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
 .container {
-  width: 300px;
+  width: 325px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -10,36 +29,18 @@
   font-size: larger;
 }
 
-.step-container {
-  display: flex;
-  flex-direction: row;
-}
-
-.step-icon {
-  margin-top: 10px;
-  color: #d18a00;
-  position: absolute;
-  right: 15px;
+.progress {
+  margin-top: 5px;
 }
 
 .info {
   background-color: #aaa;
   padding: 5px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
-.step {
-  background-color: #eee;
-  border-radius: 5px;
-  padding: 5px;
-}
-
-.completed {
-  color: #009933;
-}
-
-.selected-step {
-  border: 1px solid black;
-  background-color: #ffeb99;
-  border-radius: 5px;
+.content {
+  margin: 0 auto;
   padding: 5px;
 }
