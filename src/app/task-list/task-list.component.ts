@@ -4,16 +4,7 @@ import {TaskComponent} from "../task/task.component";
 import {task} from '../models/task';
 import {NgTemplateOutlet} from '@angular/common';
 import {MatButton} from '@angular/material/button';
-
-@Directive({
-  selector: '[task]'
-})
-export class TaskDirective {
-  readonly id = input.required<string>();
-
-  constructor(public template: TemplateRef<any>) {
-  }
-}
+import {TaskDirective} from '../directives/task.directive';
 
 @Component({
   selector: 'app-task-list',
@@ -43,9 +34,9 @@ export class TaskListComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() {
-    this.directives().forEach((directive, index) => {
-      console.log(`Template: ${directive.id()}`);
-    });
+    // this.directives().forEach((directive, index) => {
+    //   console.log(`Template: ${directive.id()}`);
+    // });
   }
 
   calculateProgress(total: number, completed: number): number {

@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit, TemplateRef, viewChild} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -22,35 +22,48 @@ import {task} from './models/task';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  tasks: task[] = [
-    {
-      id: crypto.randomUUID(),
-      title: 'Task 1',
-      completed: false,
-      targetCompletionDate: new Date(),
-      subTasks: 4
-    },
-    {
-      id: crypto.randomUUID(),
-      title: 'Task 2',
-      completed: false,
-      targetCompletionDate: new Date(),
-      subTasks: 2
-    },
-    {
-      id: crypto.randomUUID(),
-      title: 'Task 3',
-      completed: false,
-      targetCompletionDate: new Date(),
-      subTasks: 7
-    },
-    {
-      id: crypto.randomUUID(),
-      title: 'Task 4',
-      completed: false,
-      targetCompletionDate: new Date(),
-      subTasks: 3
-    },
-  ]
+export class AppComponent implements OnInit {
+  task1 = viewChild<TemplateRef<any>>("task1");
+  task2 = viewChild<TemplateRef<any>>("task2");
+  task3 = viewChild<TemplateRef<any>>("task3");
+  task4 = viewChild<TemplateRef<any>>("task4");
+
+  tasks: task[] = [];
+
+  ngOnInit() {
+    this.tasks = [
+      {
+        id: crypto.randomUUID(),
+        title: 'Task 1',
+        completed: false,
+        targetCompletionDate: new Date(),
+        subTasks: 4,
+        template: this.task1()
+      },
+      {
+        id: crypto.randomUUID(),
+        title: 'Task 2',
+        completed: false,
+        targetCompletionDate: new Date(),
+        subTasks: 2,
+        template: this.task2()
+      },
+      {
+        id: crypto.randomUUID(),
+        title: 'Task 3',
+        completed: false,
+        targetCompletionDate: new Date(),
+        subTasks: 7,
+        template: this.task3()
+      },
+      {
+        id: crypto.randomUUID(),
+        title: 'Task 4',
+        completed: false,
+        targetCompletionDate: new Date(),
+        subTasks: 3,
+        template: this.task4()
+      },
+    ];
+  }
 }
