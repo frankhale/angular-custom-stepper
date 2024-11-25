@@ -2,9 +2,9 @@
   <div class="flex-left-column">
     <div class="container">
       <div class="content">
-        <div class="title">Task List is 0% complete</div>
+        <div class="title">Task List is {{progress}}% complete</div>
         <div class="progress">
-          <mat-progress-bar mode="determinate" value="0"></mat-progress-bar>
+          <mat-progress-bar mode="determinate" value="progress"></mat-progress-bar>
         </div>
         <div class="info">Steps can be done concurrently</div>
         @for (task of tasks(); track task.title) {
@@ -15,8 +15,15 @@
             [targetCompletionDate]="task.targetCompletionDate"
             [completed]="task.completed"
             (onClick)="select($event)"
-          ></app-task>
-          <ng-template task [id]="task.id"><p>{{task.title}}</p></ng-template>
+          >
+          </app-task>
+          <ng-template task [id]="task.id">
+            <p>{{task.title}} has {{task.subTasks}} simulated subtasks</p>
+            @if(!task.completed) {
+            <hr />
+            <button (click)="completeTask(task.id)" mat-flat-button>Complete</button>
+            }
+          </ng-template>
         }
       </div>
     </div>
