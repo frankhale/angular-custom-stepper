@@ -3,5 +3,6 @@ export interface task {
   title: string;
   completed: boolean;
   targetCompletionDate?: Date,
-  completionDate?: Date
+  completionDate?: Date,
+  subTasks: number
 }

@@ -28,25 +28,29 @@ export class AppComponent {
       id: crypto.randomUUID(),
       title: 'Task 1',
       completed: false,
-      targetCompletionDate: new Date()
+      targetCompletionDate: new Date(),
+      subTasks: 4
     },
     {
       id: crypto.randomUUID(),
       title: 'Task 2',
       completed: false,
-      targetCompletionDate: new Date()
+      targetCompletionDate: new Date(),
+      subTasks: 2
     },
     {
       id: crypto.randomUUID(),
       title: 'Task 3',
       completed: false,
-      targetCompletionDate: new Date()
+      targetCompletionDate: new Date(),
+      subTasks: 7
     },
     {
       id: crypto.randomUUID(),
       title: 'Task 4',
       completed: false,
-      targetCompletionDate: new Date()
+      targetCompletionDate: new Date(),
+      subTasks: 3
     },
   ]
 }
