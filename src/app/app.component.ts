@@ -4,9 +4,9 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import {TaskListComponent} from './task-list/task-list.component';
 import {task} from './models/task';
+import {StepProgressComponent} from './step-progress/step-progress.component';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +18,7 @@ import {task} from './models/task';
     MatInputModule,
     MatButtonModule,
     TaskListComponent,
+    StepProgressComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -27,6 +28,7 @@ export class AppComponent implements OnInit {
   task2 = viewChild<TemplateRef<any>>("task2");
   task3 = viewChild<TemplateRef<any>>("task3");
   task4 = viewChild<TemplateRef<any>>("task4");
+  task5 = viewChild<TemplateRef<any>>("task5");
 
   tasks: task[] = [];
 
@@ -62,6 +64,14 @@ export class AppComponent implements OnInit {
         completed: false,
         targetCompletionDate: new Date(),
         subTasks: 3,
+        template: this.task4()
+      },
+      {
+        id: crypto.randomUUID(),
+        title: 'Task 5',
+        completed: false,
+        targetCompletionDate: new Date(),
+        subTasks: 10,
         template: this.task4()
       },
     ];

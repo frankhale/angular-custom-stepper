@@ -44,7 +44,8 @@ export class TaskListComponent implements AfterViewInit, OnInit {
       return 0; // Avoid division by zero
     }
 
-    return (completed / total) * 100;
+    const progress = (completed / total) * 100;
+    return parseFloat(progress.toFixed(2));
   }
 
   completeTask(id: string) {
@@ -53,7 +54,7 @@ export class TaskListComponent implements AfterViewInit, OnInit {
     if (task) {
       task.completed = true;
 
-      const completedTasks = this.tasks().filter(t => t.completed).reduce((sum, task) => sum + task.subTasks, 0);;
+      const completedTasks = this.tasks().filter(t => t.completed).reduce((sum, task) => sum + task.subTasks, 0);
       this.progress = this.calculateProgress(this.totalTasks, completedTasks);
 
       console.log(`Total Tasks -> ${this.totalTasks}`);
