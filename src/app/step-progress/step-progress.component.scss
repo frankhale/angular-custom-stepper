@@ -1,0 +1,77 @@
+.status {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 20px;
+}
+
+.status-label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.status-steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.step {
+  position: relative;
+  padding: 10px 25px;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  background-color: #f6e3b3;
+  clip-path: polygon(
+      12px 50%,
+      0 0,
+      calc(100% - 12px) 0,
+      100% 50%,
+      calc(100% - 12px) 100%,
+      0 100%
+  );
+  margin-left: -5px;
+}
+
+.step:first-child {
+  clip-path: polygon(
+      0 0,
+      calc(100% - 12px) 0,
+      100% 50%,
+      calc(100% - 12px) 100%,
+      0 100%
+  );
+  border-radius: 0;
+  margin-left: 0;
+}
+
+.step:last-child {
+  clip-path: polygon(
+      12px 50%,
+      0 0,
+      100% 0,
+      100% 100%,
+      0 100%,
+      12px 50%
+  );
+  margin-left: -5px;
+  border-radius: 0;
+}
+
+.step.started {
+  background-color: #b3f2b3;
+}
+
+.step.in-progress {
+  background-color: #f6e3b3;
+}
+
+.step.pending {
+  background-color: #f6e3b3;
+}
