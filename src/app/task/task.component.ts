@@ -21,6 +21,10 @@ export class TaskComponent {
   readonly targetCompletionDate = input<Date>();
   readonly onClick = output<string>();
 
+  // icon (circle with minus inside it) is called `do_not_disturb_on`
+  // icon (in progress) is called `pending_actions`
+  // icon (completed) is called `check_circle`
+
   select() {
     this.onClick.emit(this.id());
     //console.log(`select: ${this.id()}`);
