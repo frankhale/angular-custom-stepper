@@ -31,6 +31,7 @@ export class AppComponent implements OnInit {
   task5 = viewChild<TemplateRef<any>>("task5");
 
   tasks: task[] = [];
+  startingTask: string | undefined;
 
   ngOnInit() {
     this.tasks = [
@@ -72,8 +73,14 @@ export class AppComponent implements OnInit {
         completed: false,
         targetCompletionDate: new Date(),
         subTasks: 10,
-        template: this.task4()
+        template: this.task5()
       },
     ];
+
+    this.tasks.find(t => {
+      if(t.title === 'Task 1') {
+        this.startingTask = t.id;
+      }
+    });
   }
 }

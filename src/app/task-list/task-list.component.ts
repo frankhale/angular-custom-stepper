@@ -21,6 +21,7 @@ import {TaskDirective} from '../directives/task.directive';
 })
 export class TaskListComponent implements AfterViewInit, OnInit {
   readonly tasks = input.required<task[]>();
+  readonly startOnTask = input<string | undefined>();
   readonly directives = viewChildren(TaskDirective);
 
   selectedTemplate: TemplateRef<any> | null = null;
@@ -37,6 +38,9 @@ export class TaskListComponent implements AfterViewInit, OnInit {
     // this.directives().forEach((directive, index) => {
     //   console.log(`Template: ${directive.id()}`);
     // });
+    if(this.startOnTask()) {
+      this.select(this.startOnTask()!);
+    }
   }
 
   calculateProgress(total: number, completed: number): number {
