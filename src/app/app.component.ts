@@ -31,12 +31,14 @@ export class AppComponent implements OnInit {
   task5 = viewChild<TemplateRef<any>>("task5");
 
   tasks: task[] = [];
+  startingTask: string | undefined;
 
   ngOnInit() {
     this.tasks = [
       {
         id: crypto.randomUUID(),
         title: 'Task 1',
+        started: false,
         completed: false,
         targetCompletionDate: new Date(),
         subTasks: 4,
@@ -45,6 +47,7 @@ export class AppComponent implements OnInit {
       {
         id: crypto.randomUUID(),
         title: 'Task 2',
+        started: false,
         completed: false,
         targetCompletionDate: new Date(),
         subTasks: 2,
@@ -53,6 +56,7 @@ export class AppComponent implements OnInit {
       {
         id: crypto.randomUUID(),
         title: 'Task 3',
+        started: false,
         completed: false,
         targetCompletionDate: new Date(),
         subTasks: 7,
@@ -61,6 +65,7 @@ export class AppComponent implements OnInit {
       {
         id: crypto.randomUUID(),
         title: 'Task 4',
+        started: false,
         completed: false,
         targetCompletionDate: new Date(),
         subTasks: 3,
@@ -69,11 +74,18 @@ export class AppComponent implements OnInit {
       {
         id: crypto.randomUUID(),
         title: 'Task 5',
+        started: false,
         completed: false,
         targetCompletionDate: new Date(),
         subTasks: 10,
-        template: this.task4()
+        template: this.task5()
       },
     ];
+
+    this.tasks.find(t => {
+      if(t.title === 'Task 1') {
+        this.startingTask = t.id;
+      }
+    });
   }
 }

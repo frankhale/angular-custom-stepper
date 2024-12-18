@@ -12,6 +12,7 @@
             [id]="task.id"
             [title]="task.title"
             [selected]="task.id === selectedTask"
+            [started]="task.started"
             [targetCompletionDate]="task.targetCompletionDate"
             [completed]="task.completed"
             (onClick)="select($event)"

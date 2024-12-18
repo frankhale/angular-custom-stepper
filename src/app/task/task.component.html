@@ -8,7 +8,11 @@
     </div>
     <div>
       @if (!completed()) {
-        <mat-icon class="step-icon">pending_actions</mat-icon>
+        @if (!started()) {
+          <mat-icon class="step-icon">do_not_disturb_on</mat-icon>
+        } @else {
+          <mat-icon class="step-icon">pending_actions</mat-icon>
+        }
       } @else {
         <mat-icon class="completed step-icon">check_circle</mat-icon>
       }
