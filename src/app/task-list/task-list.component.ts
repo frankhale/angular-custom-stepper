@@ -70,6 +70,9 @@ export class TaskListComponent implements AfterViewInit, OnInit {
     const task = this.tasks().find(task => task.id === id);
     if (task) {
       console.log(`Task found: ${task.title}`);
+      if(!task.started) {
+        task.started = true;
+      }
       this.selectedTask = task.id;
       this.selectedTemplate = this.directives().find(directive => directive.id() === task?.id)?.template || null;
     }

@@ -38,6 +38,7 @@ export class AppComponent implements OnInit {
       {
         id: crypto.randomUUID(),
         title: 'Task 1',
+        started: false,
         completed: false,
         targetCompletionDate: new Date(),
         subTasks: 4,
@@ -46,6 +47,7 @@ export class AppComponent implements OnInit {
       {
         id: crypto.randomUUID(),
         title: 'Task 2',
+        started: false,
         completed: false,
         targetCompletionDate: new Date(),
         subTasks: 2,
@@ -54,6 +56,7 @@ export class AppComponent implements OnInit {
       {
         id: crypto.randomUUID(),
         title: 'Task 3',
+        started: false,
         completed: false,
         targetCompletionDate: new Date(),
         subTasks: 7,
@@ -62,6 +65,7 @@ export class AppComponent implements OnInit {
       {
         id: crypto.randomUUID(),
         title: 'Task 4',
+        started: false,
         completed: false,
         targetCompletionDate: new Date(),
         subTasks: 3,
@@ -70,6 +74,7 @@ export class AppComponent implements OnInit {
       {
         id: crypto.randomUUID(),
         title: 'Task 5',
+        started: false,
         completed: false,
         targetCompletionDate: new Date(),
         subTasks: 10,

@@ -17,6 +17,7 @@ export class TaskComponent {
   readonly id = input.required<string>();
   readonly title = input.required<string>();
   readonly selected = input<boolean>();
+  readonly started = input.required<boolean>();
   readonly completed = input<boolean>();
   readonly targetCompletionDate = input<Date>();
   readonly onClick = output<string>();
