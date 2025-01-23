@@ -5,6 +5,7 @@ export interface task {
   title: string;
   started: boolean;
   completed: boolean;
+  disabled?: boolean;
   targetCompletionDate?: Date,
   completionDate?: Date,
   subTasks: number;

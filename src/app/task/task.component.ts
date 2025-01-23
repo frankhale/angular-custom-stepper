@@ -28,6 +28,8 @@ export class TaskComponent {
   // icon (completed) is called `check_circle`
 
   select() {
+    if(this.disabled()) return;
+
     this.onClick.emit(this.id());
     //console.log(`select: ${this.id()}`);
   }
