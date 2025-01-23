@@ -35,6 +35,11 @@
   padding: 5px;
 }
 
+.disabled {
+  color: #999;
+  background-color: #eee;
+}
+
 .selected {
   border: 1px solid black;
   background-color: #ffeb99;

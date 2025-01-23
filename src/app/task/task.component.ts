@@ -20,6 +20,7 @@ export class TaskComponent {
   readonly started = input.required<boolean>();
   readonly completed = input<boolean>();
   readonly targetCompletionDate = input<Date>();
+  readonly disabled = input<boolean>(false);
   readonly onClick = output<string>();
 
   // icon (circle with minus inside it) is called `do_not_disturb_on`
@@ -27,6 +28,8 @@ export class TaskComponent {
   // icon (completed) is called `check_circle`
 
   select() {
+    if(this.disabled()) return;
+
     this.onClick.emit(this.id());
     //console.log(`select: ${this.id()}`);
   }

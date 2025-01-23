@@ -49,6 +49,7 @@ export class AppComponent implements OnInit {
         title: 'Task 2',
         started: false,
         completed: false,
+        disabled: true,
         targetCompletionDate: new Date(),
         subTasks: 2,
         template: this.task2()
@@ -58,6 +59,7 @@ export class AppComponent implements OnInit {
         title: 'Task 3',
         started: false,
         completed: false,
+        disabled: true,
         targetCompletionDate: new Date(),
         subTasks: 7,
         template: this.task3()
@@ -67,6 +69,7 @@ export class AppComponent implements OnInit {
         title: 'Task 4',
         started: false,
         completed: false,
+        disabled: true,
         targetCompletionDate: new Date(),
         subTasks: 3,
         template: this.task4()
@@ -76,6 +79,7 @@ export class AppComponent implements OnInit {
         title: 'Task 5',
         started: false,
         completed: false,
+        disabled: true,
         targetCompletionDate: new Date(),
         subTasks: 10,
         template: this.task5()

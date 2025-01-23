@@ -1,5 +1,5 @@
 <div class="task-container step"
-     [ngClass]="{'selected': selected()}"
+     [ngClass]="{'selected': selected(), 'disabled': disabled()}"
      (click)="select()">
   <div class="step-container">
     <div>
@@ -7,7 +7,9 @@
       <span><small>Target Completion Date: {{ targetCompletionDate() | date: 'shortDate' }}</small></span>
     </div>
     <div>
-      @if (!completed()) {
+      @if(disabled()) {
+        <mat-icon class="disabled step-icon">do_not_disturb_on</mat-icon>
+      } @else if (!completed()) {
         @if (!started()) {
           <mat-icon class="step-icon">do_not_disturb_on</mat-icon>
         } @else {
