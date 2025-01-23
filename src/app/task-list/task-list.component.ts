@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Directive, input, OnInit, TemplateRef, viewChildren} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, input, OnInit, TemplateRef, viewChildren} from '@angular/core';
 import {MatProgressBar} from "@angular/material/progress-bar";
 import {TaskComponent} from "../task/task.component";
 import {task} from '../models/task';
@@ -7,17 +7,9 @@ import {MatButton} from '@angular/material/button';
 import {TaskDirective} from '../directives/task.directive';
 
 @Component({
-  selector: 'app-task-list',
-  imports: [
-    MatProgressBar,
-    TaskComponent,
-    NgTemplateOutlet,
-    TaskDirective,
-    MatButton
-  ],
+  selector: 'app-task-list', imports: [MatProgressBar, TaskComponent, NgTemplateOutlet, TaskDirective, MatButton],
 
-  templateUrl: './task-list.component.html',
-  styleUrl: './task-list.component.scss'
+  templateUrl: './task-list.component.html', styleUrl: './task-list.component.scss'
 })
 export class TaskListComponent implements AfterViewInit, OnInit {
   readonly tasks = input.required<task[]>();
@@ -30,6 +22,9 @@ export class TaskListComponent implements AfterViewInit, OnInit {
   progress: number = 0;
   totalTasks: number = 0;
 
+  constructor(private cdr: ChangeDetectorRef) {
+  }
+
   ngOnInit() {
     this.totalTasks = this.tasks().reduce((sum, task) => sum + task.subTasks, 0);
   }
@@ -38,7 +33,7 @@ export class TaskListComponent implements AfterViewInit, OnInit {
     // this.directives().forEach((directive, index) => {
     //   console.log(`Template: ${directive.id()}`);
     // });
-    if(this.startOnTask()) {
+    if (this.startOnTask()) {
       this.select(this.startOnTask()!);
     }
   }
@@ -70,11 +65,12 @@ export class TaskListComponent implements AfterViewInit, OnInit {
     const task = this.tasks().find(task => task.id === id);
     if (task) {
       console.log(`Task found: ${task.title}`);
-      if(!task.started) {
+      if (!task.started) {
         task.started = true;
       }
       this.selectedTask = task.id;
       this.selectedTemplate = this.directives().find(directive => directive.id() === task?.id)?.template || null;
+      this.cdr.detectChanges();
     }
   }
 }
